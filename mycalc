@@ -1,0 +1,48 @@
+#!/bin/bash
+# Filename: mycalc.sh
+# Author: Chen Wu
+# Date: March 26 2023
+# Objective:
+# This script performs arithmetic addition and subtraction
+# It will check input paramenter numbers and display error message accordingly
+
+# start the program on a fresh screen
+clear
+
+# perform addition and subtraction
+addition(){
+  (( sum = $1 + $2 ))
+  echo "Sum of $1 and $2 is: " $sum
+}
+
+subtraction(){
+  (( result = $1 - $2 ))
+  echo "Subtraction of $1 and $2 is: " $result
+}
+
+# check number of parameters
+    if [ $# -ne 3 ]
+    then
+        echo "Incorrect number of parameters"
+        echo "Usage: operand1 operator operand2"
+    fi
+
+# perform arithmetic operation based on operator input
+    if [ $# -eq 3 ] # check number of arguments at command line
+    then
+        if [ $2 = "+" ]
+        then
+            addition $1 $3
+        elif [ $2 = "-" ]
+        then
+            subtraction $1 $3
+        else
+            echo "Incorrect Operator" $operator
+            echo "+ to add"
+            echo "- to subtract"
+        fi
+    fi
+
+
+
+# eof: mycalc.sh
